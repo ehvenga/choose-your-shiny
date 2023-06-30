@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+main h3 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 20px;
+    color: white;
+}

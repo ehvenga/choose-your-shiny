@@ -2,7 +2,8 @@ import { component$, Slot, useStyles$ } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import type { RequestHandler } from '@builder.io/qwik-city';
 
-import Header from '~/components/crucial/header';
+import Header from '~/components/crucial/header/header';
+import Navbar from '~/components/crucial/navbar/navbar';
 
 import styles from './styles.css?inline';
 
@@ -28,6 +29,7 @@ export default component$(() => {
   return (
     <>
       <Header />
+      <Navbar />
       <main>
         <Slot />
       </main>
