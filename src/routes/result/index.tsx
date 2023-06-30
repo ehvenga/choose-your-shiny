@@ -1,18 +1,18 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
-import About from '~/components/about/about';
+import Result from '~/components/result/result';
 
 export default component$(() => {
   return (
     <>
-      <About />
+      <Result />
     </>
   );
 });
 
 export const head: DocumentHead = {
-  title: 'About Shiny Contest',
+  title: 'Results of Shiny Contest',
   meta: [
     {
       name: 'Pokemon Shiny Contest',
