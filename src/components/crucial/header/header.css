@@ -12,6 +12,7 @@ header h1 {
   padding: 0;
   text-align: center;
   width: 100%;
+  font-weight: bold;
 }
 
 header h2 {
@@ -20,6 +21,7 @@ header h2 {
   padding: 0;
   text-align: center;
   width: 100%;
+  
 }
 
 .typewriter {

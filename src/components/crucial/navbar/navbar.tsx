@@ -10,7 +10,7 @@ export default component$(() => {
           <a href='/'>Home</a>
         </li>
         <li>
-          <a href='/results'>Results</a>
+          <a href='/result'>Result</a>
         </li>
         <li>
           <a href='/about'>About</a>
