@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+header h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+header h2 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 4s steps(30) 1s forwards;
+  animation-direction: reverse; /* Reverse animation direction */
+}
+
+@keyframes typewriter {
+  from {
+    width: 100%; /* Start with full width */
+  }
+  to {
+    width: 0; /* Animate to no width */
+  }
+}

@@ -1,4 +1,4 @@
-# Qwik City App ⚡️
+# Qwik Pokemon Shinies App ⚡️
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
