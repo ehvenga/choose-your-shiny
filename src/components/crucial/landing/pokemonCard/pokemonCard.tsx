@@ -6,9 +6,15 @@ import {
 } from '@builder.io/qwik';
 import styles from './pokemonCard.css?inline';
 
-export default component$(() => {
+type itemProps = {
+  id: number;
+};
+
+export default component$<itemProps>((props) => {
   const fetchPokemon = useResource$(async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon-form/2');
+    const response = await fetch(
+      'https://pokeapi.co/api/v2/pokemon-form/' + props.id + '/'
+    );
     return response.json();
   });
 
