@@ -7,8 +7,8 @@ export default component$(() => {
   useStylesScoped$(styles);
   return (
     <main>
-      <h3>Choose your favourite shiny</h3>
-      <section>
+      <h3>Choose your favorite shiny</h3>
+      <section class='cards'>
         <PokemonCard />
         <PokemonCard />
       </section>
