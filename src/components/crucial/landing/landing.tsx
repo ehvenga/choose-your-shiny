@@ -21,8 +21,8 @@ export default component$(() => {
   });
 
   useTask$(() => {
-    const randomNumber1 = Math.floor(Math.random() * 999) + 1;
-    let randomNumber2 = Math.floor(Math.random() * 999) + 1;
+    const randomNumber1 = Math.floor(Math.random() * 699) + 1;
+    let randomNumber2 = Math.floor(Math.random() * 699) + 1;
 
     // Generate two different random numbers
     while (randomNumber1 === randomNumber2) {
