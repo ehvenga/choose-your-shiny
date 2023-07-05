@@ -14,16 +14,13 @@ nav ul li {
   border-bottom: 1px solid #ccc;
 }
 
-nav ul li:hover {
-  border-bottom: 1px solid cyan;
-}
-
 nav ul li a {
   display: block;
   width: 100%;
   text-decoration: none;
   font-size: 20px;
   padding: 10px;
+  color: white;
 }
 
 nav ul li a:hover {
