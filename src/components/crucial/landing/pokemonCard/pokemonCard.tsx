@@ -3,8 +3,8 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
-  // useStore,
-  useTask$,
+  useStore,
+  $,
 } from '@builder.io/qwik';
 import styles from './pokemonCard.css?inline';
 
@@ -12,34 +12,45 @@ type itemProps = {
   id: number;
 };
 
-// type pokemonDetails = {
-//   pokemon_name: string;
-//   pokemon_id: number;
-//   sprite_url: string;
-//   is_won: boolean;
-// };
+type pokemonDetails = {
+  pokemon_name: string;
+  pokemon_id: number;
+  sprite_url: string;
+  is_won: boolean;
+};
 
 export default component$<itemProps>((props) => {
+  const pokemonDetailsState = useStore<pokemonDetails[]>([]);
+
   const fetchPokemon = useResource$(async () => {
     const response = await fetch(
       'https://pokeapi.co/api/v2/pokemon-form/' + props.id + '/'
     );
-    return response.json();
+    const data = await response.json();
+
+    pokemonDetailsState.push({
+      pokemon_name: data?.name,
+      pokemon_id: data?.order,
+      sprite_url: data?.sprites?.front_shiny,
+      is_won: false,
+    });
+
+    return data;
   });
 
-  // const pokemonDetailsState = useStore<pokemonDetails[]>([]);
-
-  useTask$(async ({track}) => {
-    track(await fetchPokemon);
-    console.log(fetchPokemon);
-    // pokemonDetailsState.push({
-    //   pokemon_name: fetchPokemon.pokemon.name,
-    //   pokemon_id: fetchPokemon.id,
-    //   sprite_url: fetchPokemon.sprites.front_shiny,
-    //   is_won: false,
-    // });
+  const handleClick = $(() => {
+    const updatedPokemonArray = pokemonDetailsState.map((pokemon) => {
+      if (pokemon.pokemon_id === props.id) {
+        return { ...pokemon, is_won: true }; // Create a new object with updated is_won value
+      }
+      return pokemon; // Return the original object for other IDs
+    });
+    console.log(
+      'updatedPokemonArray',
+      updatedPokemonArray,
+      pokemonDetailsState
+    );
   });
-
 
   useStylesScoped$(styles);
   return (
@@ -55,6 +66,7 @@ export default component$<itemProps>((props) => {
                 alt={data?.pokemon?.name}
                 width={200}
                 height={200}
+                onClick$={handleClick}
               />
               <div class='card-details'>
                 <p>{data?.pokemon?.name}</p>
