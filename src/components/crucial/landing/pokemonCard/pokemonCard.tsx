@@ -3,12 +3,21 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
+  // useStore,
+  useTask$,
 } from '@builder.io/qwik';
 import styles from './pokemonCard.css?inline';
 
 type itemProps = {
   id: number;
 };
+
+// type pokemonDetails = {
+//   pokemon_name: string;
+//   pokemon_id: number;
+//   sprite_url: string;
+//   is_won: boolean;
+// };
 
 export default component$<itemProps>((props) => {
   const fetchPokemon = useResource$(async () => {
@@ -17,6 +26,20 @@ export default component$<itemProps>((props) => {
     );
     return response.json();
   });
+
+  // const pokemonDetailsState = useStore<pokemonDetails[]>([]);
+
+  useTask$(async ({track}) => {
+    track(await fetchPokemon);
+    console.log(fetchPokemon);
+    // pokemonDetailsState.push({
+    //   pokemon_name: fetchPokemon.pokemon.name,
+    //   pokemon_id: fetchPokemon.id,
+    //   sprite_url: fetchPokemon.sprites.front_shiny,
+    //   is_won: false,
+    // });
+  });
+
 
   useStylesScoped$(styles);
   return (

@@ -13,12 +13,21 @@ type IdState = {
   id2: number;
 };
 
+type pokemonDetails = {
+  pokemon_name: string;
+  pokemon_id: number;
+  sprite_url: string;
+  is_won: boolean;
+}
+
 export default component$(() => {
   useStylesScoped$(styles);
   const idState: IdState = useStore({
     id1: 1,
     id2: 2,
   });
+
+
 
   useTask$(() => {
     const randomNumber1 = Math.floor(Math.random() * 699) + 1;
